@@ -1,6 +1,6 @@
 """
 Run this script ONCE after deploying to Vercel to connect Telegram to your bot.
-Usage: python3 setup_webhook.py https://your-project.vercel.app
+Usage: python3 telegram-bot/setup_webhook.py https://your-project.vercel.app
 """
 
 import sys
@@ -11,7 +11,7 @@ TELEGRAM_API = f"https://api.telegram.org/bot{TOKEN}"
 
 
 def set_webhook(vercel_url):
-    webhook_url = f"{vercel_url.rstrip('/')}/api/webhook"
+    webhook_url = f"{vercel_url.rstrip('/')}/api/telegram"
     response = requests.post(
         f"{TELEGRAM_API}/setWebhook",
         json={"url": webhook_url}
@@ -26,16 +26,13 @@ def set_webhook(vercel_url):
 
 def get_webhook_info():
     response = requests.get(f"{TELEGRAM_API}/getWebhookInfo")
-    info = response.json()
-    print("Current webhook info:")
-    print(info)
+    print(response.json())
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 setup_webhook.py https://your-project.vercel.app")
+        print("Usage: python3 telegram-bot/setup_webhook.py https://your-project.vercel.app")
         print("\nCurrent webhook info:")
         get_webhook_info()
     else:
-        vercel_url = sys.argv[1]
-        set_webhook(vercel_url)
+        set_webhook(sys.argv[1])

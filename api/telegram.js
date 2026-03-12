@@ -9,7 +9,7 @@ async function sendMessage(chatId, text) {
   });
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(200).json({ status: "Telegram Bot Webhook is running!" });
   }
@@ -29,20 +29,20 @@ export default async function handler(req, res) {
     await sendMessage(
       chatId,
       `សួស្តី ${firstName}! ខ្ញុំជា Telegram Bot សាមញ្ញ។\n\n` +
-      "ពាក្យបញ្ជាដែលអាចប្រើ:\n" +
-      "/start - ចាប់ផ្តើម\n" +
-      "/help - ជំនួយ\n" +
-      "/about - អំពី Bot\n\n" +
-      "ឬ វាយអ្វីក៏បាន ខ្ញុំនឹង echo ត្រឡប់!"
+        "ពាក្យបញ្ជាដែលអាចប្រើ:\n" +
+        "/start - ចាប់ផ្តើម\n" +
+        "/help - ជំនួយ\n" +
+        "/about - អំពី Bot\n\n" +
+        "ឬ វាយអ្វីក៏បាន ខ្ញុំនឹង echo ត្រឡប់!"
     );
   } else if (text === "/help") {
     await sendMessage(
       chatId,
       "ពាក្យបញ្ជា:\n" +
-      "/start - ចាប់ផ្តើម\n" +
-      "/help - ជំនួយ\n" +
-      "/about - អំពី Bot\n\n" +
-      "ផ្ញើអ្វីក៏បាន ខ្ញុំ echo វាត្រឡប់!"
+        "/start - ចាប់ផ្តើម\n" +
+        "/help - ជំនួយ\n" +
+        "/about - អំពី Bot\n\n" +
+        "ផ្ញើអ្វីក៏បាន ខ្ញុំ echo វាត្រឡប់!"
     );
   } else if (text === "/about") {
     await sendMessage(
@@ -54,4 +54,4 @@ export default async function handler(req, res) {
   }
 
   return res.status(200).json({ ok: true });
-}
+};
