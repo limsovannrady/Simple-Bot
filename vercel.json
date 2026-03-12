@@ -1,21 +1,5 @@
 {
   "version": 2,
-  "installCommand": "pip install -r telegram-bot/requirements.txt",
-  "buildCommand": "",
-  "builds": [
-    {
-      "src": "telegram-bot/api/webhook.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/webhook",
-      "dest": "telegram-bot/api/webhook.py"
-    },
-    {
-      "src": "/",
-      "dest": "telegram-bot/api/webhook.py"
-    }
-  ]
+  "installCommand": "",
+  "buildCommand": ""
 }
