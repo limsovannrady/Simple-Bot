@@ -91,6 +91,16 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+### `telegram-bot/`
+
+A simple Python Telegram bot using `python-telegram-bot` library.
+
+- Entry: `telegram-bot/bot.py`
+- Token: stored directly in `bot.py`
+- Commands: `/start`, `/help`, `/about`
+- Also echoes any plain text message back to the user
+- Workflow: "Telegram Bot" — runs `python3 telegram-bot/bot.py`
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
